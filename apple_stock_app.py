@@ -38,7 +38,7 @@ st.subheader('Prediction')
 st.write(f"Predicted Close Price: {prediction[0]:.2f}")
 
 # Accuracy Comparison (Optional)
-st.subheader('Upload a Test Dataset for Accuracy Comparison')
+st.subheader('Upload a Test Dataset for Data Analysis & Accuracy Comparison')
 uploaded_file = st.file_uploader("Upload CSV", type=["csv"])
 
 if uploaded_file:

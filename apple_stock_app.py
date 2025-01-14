@@ -45,12 +45,12 @@ if uploaded_file:
     # Load uploaded dataset
     test_data = pd.read_csv(uploaded_file)
     feature_data = test_data.copy()
-    feature_data["Date"] = pd.to_datetime(df["Date"], utc=True)  
+    feature_data["Date"] = pd.to_datetime(feature_data["Date"], utc=True)
     feature_data["Date"] = feature_data["Date"].dt.tz_convert(None)
 
     feature_data["Year"] = feature_data["Date"].dt.year
     yearly_data = feature_data.groupby("Year")["Close"].mean()
-    
+
     st.subheader('Yearly Average Close Price')
     st.line_chart(yearly_data)
 

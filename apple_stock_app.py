@@ -15,12 +15,10 @@ def user_input_features():
     High = st.sidebar.number_input('Highest Price', 1, 400, 23)
     Low = st.sidebar.number_input('Lowest Price', -10, 400, 21)
     Open = st.sidebar.number_input('Open Price', -10, 400, 22)
-    Volume = st.sidebar.number_input('Volume', 1000, 7500000000, 396041800)
     data = pd.DataFrame({
         'Open': [Open],
         'High': [High],
         'Low': [Low],
-        'Volume': [Volume]
     })
     return data
 
@@ -48,10 +46,10 @@ if uploaded_file:
     test_data = pd.read_csv(uploaded_file)
 
     # Ensure required columns exist
-    required_columns = ['Open', 'High', 'Low', 'Volume', 'Close']
+    required_columns = ['Open', 'High', 'Low', 'Close']
     if all(col in test_data.columns for col in required_columns):
         # Separate features and actual values
-        X_test = test_data[['Open', 'High', 'Low', 'Volume']]
+        X_test = test_data[['Open', 'High', 'Low']]
         y_actual = test_data['Close']
 
         # Make predictions

@@ -37,6 +37,8 @@ prediction = stock.predict(df)
 st.subheader('Prediction')
 st.write(f"Predicted Close Price: {prediction[0]:.2f}")
 
+st.divider()
+
 # Accuracy Comparison (Optional)
 st.subheader('Upload a Test Dataset for Data Analysis & Accuracy Comparison')
 uploaded_file = st.file_uploader("Upload CSV", type=["csv"])

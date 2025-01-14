@@ -57,12 +57,12 @@ if uploaded_file:
 
         # Calculate metrics
         mae = (mean_absolute_error(y_actual, y_pred))*100
-        mse = (mean_squared_error(y_actual, y_pred))*100
+        r2 = (r2_score(y_actual, y_pred))*100
 
         # Display metrics
         st.subheader('Model Accuracy Metrics')
         st.write(f"Mean Absolute Error (MAE): {mae:.4f}%")
-        st.write(f"Mean Squared Error (MSE): {mse:.4f}%")
+        st.write(f"Root Squared (R^2): {r2:.4f}%")
 
         # Display the graph
         st.subheader('Stock Price Graph')

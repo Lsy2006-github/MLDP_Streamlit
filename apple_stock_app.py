@@ -44,6 +44,15 @@ uploaded_file = st.file_uploader("Upload CSV", type=["csv"])
 if uploaded_file:
     # Load uploaded dataset
     test_data = pd.read_csv(uploaded_file)
+    feature_data = test_data.copy()
+    feature_data["Date"] = pd.to_datetime(df["Date"], utc=True)  
+    feature_data["Date"] = feature_data["Date"].dt.tz_convert(None)
+
+    feature_data["Year"] = feature_data["Date"].dt.year
+    yearly_data = feature_data.groupby("Year")["Close"].mean()
+    
+    st.subheader('Yearly Average Close Price')
+    st.line_chart(yearly_data)
 
     # Ensure required columns exist
     required_columns = ['Open', 'High', 'Low', 'Close']

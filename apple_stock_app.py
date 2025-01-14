@@ -52,7 +52,7 @@ if uploaded_file:
     yearly_data = feature_data.groupby("Year")["Close"].mean()
 
     st.subheader('Yearly Average Close Price')
-    st.line_chart(yearly_data)
+    st.line_chart(yearly_data, use_container_width=True)
 
     # Ensure required columns exist
     required_columns = ['Open', 'High', 'Low', 'Close']

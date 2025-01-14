@@ -48,11 +48,6 @@ if uploaded_file:
     # Ensure required columns exist
     required_columns = ['Open', 'High', 'Low', 'Close']
     if all(col in test_data.columns for col in required_columns):
-        # Display yearly average close price
-        st.subheader('Yearly Average Close Price')
-        yearly_avg = test_data.groupby(test_data['Date'].str[:4])['Close'].mean()
-        st.write(yearly_avg.style.set_properties(**{'text-align': 'center'}))
-        st.line_chart(yearly_avg)
         # Separate features and actual values
         X_test = test_data[['Open', 'High', 'Low']]
         y_actual = test_data['Close']

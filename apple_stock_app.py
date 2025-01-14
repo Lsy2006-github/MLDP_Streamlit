@@ -64,11 +64,11 @@ if uploaded_file:
         st.write(f"Mean Absolute Error (MAE): {mae:.4f}%")
         st.write(f"Root Squared (R^2): {r2:.4f}%")
 
-        # Display the graph
-        st.subheader('Stock Price Graph')
-        st.write("This graph shows the stock price over time.")
-        st.line_chart(test_data['Close'])
-
+        # Display the actual and predicted values
+        st.subheader('Actual vs Predicted Values')
+        df = pd.DataFrame({'Actual': y_actual, 'Predicted': y_pred})
+        st.write(df.style.set_properties(**{'text-align': 'center'}))
+        
     else:
         st.error("The uploaded dataset must contain the following columns: Open, High, Low, Volume, Close")
 

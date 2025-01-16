@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle as pkl
+import numpy as np
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 st.write("""
@@ -74,7 +75,7 @@ st.write(df.style.set_properties(**{'text-align': 'center'}))
 model = pkl.load(open('model_predict.pkl', 'rb'))
 
 # Predict using the model
-prediction = model.predict(df)
+prediction = np.expm1(model.predict(df))
 
 st.subheader('Prediction')
 st.write(prediction)

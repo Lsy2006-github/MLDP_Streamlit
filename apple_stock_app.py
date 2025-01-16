@@ -13,8 +13,8 @@ st.sidebar.header('User Input Parameters')
 # Function to get user inputs
 def user_input_features():
     BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2)
-    Size = st.sidebar.slider('Lowest Price', 10, 4000000, 10000)
-    Bathroom = st.sidebar.slider('Open Price', 1, 10, 5)
+    Size = st.sidebar.slider('Size', 10, 4000000, 10000)
+    Bathroom = st.sidebar.slider('Bathroom', 1, 10, 5)
     Area_Type = st.sidebar.selectbox('Area Type', ('Built Area', 'Carpet Area', 'Super Area'))
     City = st.sidebar.selectbox('City', ('Bangalore', 'Mumbai', 'Chennai', 'Hyderabad', 'Kolkata', 'Delhi'))
     Furnishing_Status = st.sidebar.selectbox('Furnishing Status', ('Semi-Furnished', 'Unfurnished', 'Furnished'))

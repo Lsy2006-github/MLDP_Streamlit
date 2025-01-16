@@ -69,7 +69,7 @@ def user_input_features():
 df = user_input_features()
 
 st.subheader('User Input Parameters')
-st.write(df.style.set_properties(**{'text-align': 'center'}))
+st.dataframe(df, width=1000, height=600)
 
 # Load the saved model
 model = pkl.load(open('model_predict.pkl', 'rb'))
@@ -78,4 +78,4 @@ model = pkl.load(open('model_predict.pkl', 'rb'))
 prediction = np.expm1(model.predict(df))
 
 st.subheader('Prediction')
-st.write(prediction)
+st.write(prediction, witdh=500, height=100)

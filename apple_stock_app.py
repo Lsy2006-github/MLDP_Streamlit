@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 st.write("""
-# Stock Price Prediction App
+# Rental Price Prediction App
 This app predicts the **Rental Price** based on some criteria!
 """)
 

@@ -78,4 +78,4 @@ model = pkl.load(open('model_predict.pkl', 'rb'))
 prediction = np.expm1(model.predict(df))
 
 st.subheader('Prediction')
-st.write(prediction, witdh=500, height=100)
+st.write(f"The predicted rental price is: ${prediction[0]:,.2f}")   

@@ -69,7 +69,7 @@ def user_input_features():
 df = user_input_features()
 
 st.subheader('User Input Parameters')
-st.dataframe(df, use_container_width=True)
+st.dataframe(df, use_container_width=True, width=800)
 
 # Load the saved model
 model = pkl.load(open('model_predict.pkl', 'rb'))

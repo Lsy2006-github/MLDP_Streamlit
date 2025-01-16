@@ -22,7 +22,7 @@ def user_input_features():
     Point_of_Contact = st.sidebar.selectbox('Point of Contact', ('Agent', 'Owner', 'Builder'))
     Floors = st.sidebar.selectbox('The Floor Level of the Building', ('Ground', 'Lower', 'Upper', 'Other'))
     if Floors == 'Other':
-        Floors = st.sidebar.slider('Floors', 1, 100, 1)
+        Floors = st.sidebar.slider('Floors', 1, 80, 5)
     else:
         Floors = Floors
     data = {
@@ -52,7 +52,7 @@ def user_input_features():
         'Floors_Upper': [1 if Floors == 'Upper' else 0]
     }
     
-    for i in range(1, 101):
+    for i in range(1, 81):
         data[f'Floors_{i}'] = [1 if Floors == i else 0]
     
     data = pd.DataFrame(data)

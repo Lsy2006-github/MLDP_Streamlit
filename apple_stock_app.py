@@ -49,9 +49,9 @@ def user_input_features():
         'Point_of_Contact_Builder': [1 if Point_of_Contact == 'Builder' else 0],
     }
 
-    for i in range(1, 8):
+    for i in range(1, 9):
         data[f'Floors_{i}'] = [1 if Floors == i else 0]
-        for j in range(0, 9):
+        for j in range(0, 10):
             data[f'Floors_{i}{j}'] = [1 if Floors == i else 0]
         
     data['Floors_Ground'] = [1 if Floors == 'Ground' else 0]

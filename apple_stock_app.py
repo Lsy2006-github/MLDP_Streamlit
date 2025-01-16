@@ -18,7 +18,7 @@ def user_input_features():
     Area_Type = st.sidebar.selectbox('Area Type', ('Built Area', 'Carpet Area', 'Super Area'))
     City = st.sidebar.selectbox('City', ('Bangalore', 'Mumbai', 'Chennai', 'Hyderabad', 'Kolkata', 'Delhi'))
     Furnishing_Status = st.sidebar.selectbox('Furnishing Status', ('Semi-Furnished', 'Unfurnished', 'Furnished'))
-    Tenant_Preferred = st.sidebar.selectbox('Tenant Preferred', ('Family', 'Bachelor', 'Company'))
+    Tenant_Preferred = st.sidebar.selectbox('Tenant Preferred', ('Bachelors/Family', 'Bachelors'))
     Point_of_Contact = st.sidebar.selectbox('Point of Contact', ('Agent', 'Owner', 'Builder'))
     Floors = st.sidebar.selectbox('The Floor Level of the Building', ('Ground', 'Lower', 'Upper', 'Other'))
     if Floors == 'Other':
@@ -41,12 +41,11 @@ def user_input_features():
         'Furnishing Status_Semi-Furnished': [1 if Furnishing_Status == 'Semi-Furnished' else 0],
         'Furnishing Status_Unfurnished': [1 if Furnishing_Status == 'Unfurnished' else 0],
         'Furnishing Status_Furnished': [1 if Furnishing_Status == 'Furnished' else 0],
-        'Tenant Preferred_Family': [1 if Tenant_Preferred == 'Family' else 0],
-        'Tenant Preferred_Bachelor': [1 if Tenant_Preferred == 'Bachelor' else 0],
-        'Tenant Preferred_Company': [1 if Tenant_Preferred == 'Company' else 0],
-        'Point of Contact_Agent': [1 if Point_of_Contact == 'Agent' else 0],
-        'Point of Contact_Owner': [1 if Point_of_Contact == 'Owner' else 0],
-        'Point of Contact_Builder': [1 if Point_of_Contact == 'Builder' else 0],
+        'Tenant Preferred_Bachelors/Family': [1 if Tenant_Preferred == 'Family' else 0],
+        'Tenant Preferred_Bachelors': [1 if Tenant_Preferred == 'Bachelors' else 0],
+        'Point of Contact_Contact Agent': [1 if Point_of_Contact == 'Agent' else 0],
+        'Point of Contact_Contact Owner': [1 if Point_of_Contact == 'Owner' else 0],
+        'Point of Contact_Contact Builder': [1 if Point_of_Contact == 'Builder' else 0],
         'Floors_Ground': [1 if Floors == 'Ground' else 0],
         'Floors_Lower': [1 if Floors == 'Lower' else 0],
         'Floors_Upper': [1 if Floors == 'Upper' else 0]

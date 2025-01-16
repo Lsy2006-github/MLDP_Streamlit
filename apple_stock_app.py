@@ -41,10 +41,10 @@ def user_input_features():
         'Furnishing Status_Furnished': [1 if Furnishing_Status == 'Furnished' else 0],
         'Furnishing Status_Semi-Furnished': [1 if Furnishing_Status == 'Semi-Furnished' else 0],
         'Furnishing Status_Unfurnished': [1 if Furnishing_Status == 'Unfurnished' else 0],     
-        'Tenant Preferred_Bachelor': [1 if Tenant_Preferred == 'Bachelor' else 0],
+        'Tenant Preferred_Bachelors': [1 if Tenant_Preferred == 'Bachelor' else 0],
         'Tenant Preferred_Bachelors/Family': [1 if Tenant_Preferred == 'Bachelors/Family' else 0],
         'Tenant Preferred_Family': [1 if Tenant_Preferred == 'Agent' else 0],
-        'Tenant Preferred_Contact Agent': [1 if Tenant_Preferred == 'Company' else 0],
+        'Point of Contact_Contact Agent': [1 if Tenant_Preferred == 'Company' else 0],
         'Point of Contact_Contact Builder': [1 if Point_of_Contact == 'Builder' else 0],
         'Point of Contact_Contact Owner': [1 if Point_of_Contact == 'Owner' else 0],
     }

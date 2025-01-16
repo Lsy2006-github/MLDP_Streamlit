@@ -18,42 +18,45 @@ def user_input_features():
     Area_Type = st.sidebar.selectbox('Area Type', ('Built Area', 'Carpet Area', 'Super Area'))
     City = st.sidebar.selectbox('City', ('Bangalore', 'Mumbai', 'Chennai', 'Hyderabad', 'Kolkata', 'Delhi'))
     Furnishing_Status = st.sidebar.selectbox('Furnishing Status', ('Semi-Furnished', 'Unfurnished', 'Furnished'))
-    Tenant_Preferred = st.sidebar.selectbox('Tenant Preferred', ('Bachelors/Family', 'Bachelors', 'Family'))
+    Tenant_Preferred = st.sidebar.selectbox('Tenant Preferred', ('Family', 'Bachelor', 'Bachelors/Family'))
     Point_of_Contact = st.sidebar.selectbox('Point of Contact', ('Agent', 'Owner', 'Builder'))
     Floors = st.sidebar.selectbox('The Floor Level of the Building', ('Ground', 'Lower', 'Upper', 'Other'))
     if Floors == 'Other':
-        Floors = st.sidebar.slider('Floors', 1, 80, 5)
+        Floors = st.sidebar.slider('Floors', 1, 100, 1)
     else:
         Floors = Floors
     data = {
         'BHK': [BHK],
         'Size': [Size],
         'Bathroom': [Bathroom],
-        'Area Type_Built Area': [1 if Area_Type == 'Built Area' else 0],
-        'Area Type_Carpet Area': [1 if Area_Type == 'Carpet Area' else 0],
-        'Area Type_Super Area': [1 if Area_Type == 'Super Area' else 0],
+        'Area_Type_Built Area': [1 if Area_Type == 'Built Area' else 0],
+        'Area_Type_Carpet Area': [1 if Area_Type == 'Carpet Area' else 0],
+        'Area_Type_Super Area': [1 if Area_Type == 'Super Area' else 0],
         'City_Bangalore': [1 if City == 'Bangalore' else 0],
-        'City_Mumbai': [1 if City == 'Mumbai' else 0],
         'City_Chennai': [1 if City == 'Chennai' else 0],
+        'City_Delhi': [1 if City == 'Delhi' else 0],
         'City_Hyderabad': [1 if City == 'Hyderabad' else 0],
         'City_Kolkata': [1 if City == 'Kolkata' else 0],
-        'City_Delhi': [1 if City == 'Delhi' else 0],
-        'Furnishing Status_Semi-Furnished': [1 if Furnishing_Status == 'Semi-Furnished' else 0],
-        'Furnishing Status_Unfurnished': [1 if Furnishing_Status == 'Unfurnished' else 0],
-        'Furnishing Status_Furnished': [1 if Furnishing_Status == 'Furnished' else 0],
-        'Tenant Preferred_Bachelors/Family': [1 if Tenant_Preferred == 'Bachelors/Family' else 0],
-        'Tenant Preferred_Bachelors': [1 if Tenant_Preferred == 'Bachelors' else 0],
-        'Tenant Preferred_Family': [1 if Tenant_Preferred == 'Family' else 0],
-        'Point of Contact_Contact Agent': [1 if Point_of_Contact == 'Agent' else 0],
-        'Point of Contact_Contact Owner': [1 if Point_of_Contact == 'Owner' else 0],
-        'Point of Contact_Contact Builder': [1 if Point_of_Contact == 'Builder' else 0],
-        'Floors_Ground': [1 if Floors == 'Ground' else 0],
-        'Floors_Lower': [1 if Floors == 'Lower' else 0],
-        'Floors_Upper': [1 if Floors == 'Upper' else 0]
+        'City_Mumbai': [1 if City == 'Mumbai' else 0],
+        'Furnishing_Status_Furnished': [1 if Furnishing_Status == 'Furnished' else 0],
+        'Furnishing_Status_Semi-Furnished': [1 if Furnishing_Status == 'Semi-Furnished' else 0],
+        'Furnishing_Status_Unfurnished': [1 if Furnishing_Status == 'Unfurnished' else 0],     
+        'Tenant_Preferred_Bachelor': [1 if Tenant_Preferred == 'Bachelor' else 0],
+        'Tenant_Preferred_Bachelors/Family': [1 if Tenant_Preferred == 'Bachelors/Family' else 0],
+        'Tenant_Preferred_Family': [1 if Tenant_Preferred == 'Family' else 0],
+        'Tenant_Preferred_Company': [1 if Tenant_Preferred == 'Company' else 0],
+        'Point_of_Contact_Agent': [1 if Point_of_Contact == 'Agent' else 0],
+        'Point_of_Contact_Builder': [1 if Point_of_Contact == 'Builder' else 0],
     }
-    
-    for i in range(1, 81):
+
+    for i in range(1, 8):
         data[f'Floors_{i}'] = [1 if Floors == i else 0]
+        for j in range(0, 9):
+            data[f'Floors_{i}{j}'] = [1 if Floors == i else 0]
+        
+    data['Floors_Ground'] = [1 if Floors == 'Ground' else 0]
+    data['Floors_Lower'] = [1 if Floors == 'Lower' else 0]
+    data['Floors_Upper'] = [1 if Floors == 'Upper' else 0]
     
     data = pd.DataFrame(data)
     return data

@@ -43,18 +43,20 @@ def user_input_features():
         'Furnishing Status_Unfurnished': [1 if Furnishing_Status == 'Unfurnished' else 0],     
         'Tenant Preferred_Bachelor': [1 if Tenant_Preferred == 'Bachelor' else 0],
         'Tenant Preferred_Bachelors/Family': [1 if Tenant_Preferred == 'Bachelors/Family' else 0],
-        'Tenant Preferred_Family': [1 if Tenant_Preferred == 'Family' else 0],
-        'Tenant Preferred_Company': [1 if Tenant_Preferred == 'Company' else 0],
-        'Point of Contact_Agent': [1 if Point_of_Contact == 'Agent' else 0],
-        'Point of Contact_Builder': [1 if Point_of_Contact == 'Builder' else 0],
+        'Tenant Preferred_Family': [1 if Tenant_Preferred == 'Agent' else 0],
+        'Tenant Preferred_Contact Agent': [1 if Tenant_Preferred == 'Company' else 0],
+        'Point of Contact_Contact Builder': [1 if Point_of_Contact == 'Builder' else 0],
+        'Point of Contact_Contact Owner': [1 if Point_of_Contact == 'Owner' else 0],
     }
 
-    for i in range(1, 8):
+    for i in range(1, 9):
         data[f'Floors_{i}'] = [1 if Floors == i else 0]
         for j in range(0, 10):
-            data[f'Floors_{i}{j}'] = [1 if Floors == i else 0]
+            if (i <= 7):
+                data[f'Floors_{i}{j}'] = [1 if Floors == int(f"{i}{j}") else 0]
     
     data['Floors_80'] = [1 if Floors == 80 else 0]
+    data['Floors_9'] = [1 if Floors == 9 else 0]
     data['Floors_Ground'] = [1 if Floors == 'Ground' else 0]
     data['Floors_Lower'] = [1 if Floors == 'Lower' else 0]
     data['Floors_Upper'] = [1 if Floors == 'Upper' else 0]

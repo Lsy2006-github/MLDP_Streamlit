@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import pickle as pkl
+import joblib
 import numpy as np
 import time
 
@@ -85,7 +85,7 @@ if st.sidebar.button('Predict'):
     st.dataframe(df_transposed, use_container_width=True, width=800, height=400)
 
     # Load the saved model
-    model = pkl.load(open('model_predict.pkl', 'rb'))
+    model = joblib.load(open('model_predict.pkl', 'rb'))
 
     # Predict using the model
     prediction = np.expm1(model.predict(df))

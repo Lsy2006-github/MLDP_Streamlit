@@ -75,7 +75,7 @@ if st.sidebar.button('Predict'):
     # Get user input
     df = user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status, Tenant_Preferred, Point_of_Contact, Floors)
 
-    for i in range(50):
+    for i in range(51):
         # Update the progress bar with each iteration.
         bar.progress(i * 2)
         time.sleep(0.1)

@@ -52,9 +52,6 @@ def user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status,
     data = pd.DataFrame(data)
     return data
 
-latest_iteration = st.empty()
-bar = st.progress(0)
-
 BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2)
 Size = st.sidebar.number_input('Size', 10, 4000000, 10000, 100)
 Bathroom = st.sidebar.slider('Bathroom', 1, 10, 5)
@@ -71,6 +68,8 @@ else:
 
 # Add a button to trigger the input feature function
 if st.sidebar.button('Predict'):
+    latest_iteration = st.empty()
+    bar = st.progress(0)
     # Get user input
     df = user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status, Tenant_Preferred, Point_of_Contact, Floors)
 

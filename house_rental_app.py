@@ -76,12 +76,13 @@ if st.sidebar.button('Predict'):
 
     for i in range(100):
         # Update the progress bar with each iteration.
-        latest_iteration.text(f'Iteration {i+1}')
         bar.progress(i + 1)
         time.sleep(0.1)
 
     st.subheader('User Input Parameters')
-    st.dataframe(df, use_container_width=True, width=800)
+    # Transpose the dataframe to show columns as rows
+    df_transposed = df.T
+    st.dataframe(df_transposed, use_container_width=True, width=800)
 
     # Load the saved model
     model = pkl.load(open('model_predict.pkl', 'rb'))

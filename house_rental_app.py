@@ -54,18 +54,18 @@ def user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status,
 
 # Sidebar - User input features
 st.sidebar.header('User Input Parameters')
-st.write('Note: Changing the features will refresh the result!')
-BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2)
-Size = st.sidebar.number_input('Size', 10, 4000000, 10000, 100)
-Bathroom = st.sidebar.slider('Bathroom', 1, 10, 5)
-Area_Type = st.sidebar.selectbox('Area Type', ('Built Area', 'Carpet Area', 'Super Area'))
-City = st.sidebar.selectbox('City', ('Bangalore', 'Mumbai', 'Chennai', 'Hyderabad', 'Kolkata', 'Delhi'))
-Furnishing_Status = st.sidebar.selectbox('Furnishing Status', ('Semi-Furnished', 'Unfurnished', 'Furnished'))
-Tenant_Preferred = st.sidebar.selectbox('Tenant Preferred', ('Family', 'Bachelor', 'Bachelors/Family'))
-Point_of_Contact = st.sidebar.selectbox('Point of Contact', ('Agent', 'Owner', 'Builder'))
-Floors = st.sidebar.selectbox('The Floor Level of the Building', ('Ground', 'Lower', 'Upper', 'Other'))
+st.sidebar.write('Result are in Indian Rupees')
+BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2, disabled=st.sidebar.button('Predict'))
+Size = st.sidebar.number_input('Size', 10, 4000000, 10000, 100, disabled=st.sidebar.button('Predict'))
+Bathroom = st.sidebar.slider('Bathroom', 1, 10, 5, disabled=st.sidebar.button('Predict'))
+Area_Type = st.sidebar.selectbox('Area Type', ('Built Area', 'Carpet Area', 'Super Area'), disabled=st.sidebar.button('Predict'))
+City = st.sidebar.selectbox('City', ('Bangalore', 'Mumbai', 'Chennai', 'Hyderabad', 'Kolkata', 'Delhi'), disabled=st.sidebar.button('Predict'))
+Furnishing_Status = st.sidebar.selectbox('Furnishing Status', ('Semi-Furnished', 'Unfurnished', 'Furnished'), disabled=st.sidebar.button('Predict'))
+Tenant_Preferred = st.sidebar.selectbox('Tenant Preferred', ('Family', 'Bachelor', 'Bachelors/Family'), disabled=st.sidebar.button('Predict'))
+Point_of_Contact = st.sidebar.selectbox('Point of Contact', ('Agent', 'Owner', 'Builder'), disabled=st.sidebar.button('Predict'))
+Floors = st.sidebar.selectbox('The Floor Level of the Building', ('Ground', 'Lower', 'Upper', 'Other'), disabled=st.sidebar.button('Predict'))
 if Floors == 'Other':
-    Floors = st.sidebar.slider('Floors', 1, 80, 10)
+    Floors = st.sidebar.slider('Floors', 1, 80, 10, disabled=st.sidebar.button('Predict'))
 else:
     Floors = Floors
 
@@ -103,3 +103,7 @@ if st.sidebar.button('Predict'):
 
     st.subheader('Prediction')
     st.write(f"The predicted rental price is: ${prediction[0]:,.2f} in Indian Rupees")
+
+if st.sidebar.button('Resety'):
+    st.caching.clear_cache()
+    st.experimental_rerun()

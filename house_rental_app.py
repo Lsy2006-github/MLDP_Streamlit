@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle as pkl
 import numpy as np
+import time
 
 st.write("""
 # Rental Price Prediction App
@@ -64,17 +65,28 @@ def user_input_features():
     data = pd.DataFrame(data)
     return data
 
-# Get user input
-df = user_input_features()
+latest_iteration = st.empty()
+bar = st.progress(0)
 
-st.subheader('User Input Parameters')
-st.dataframe(df, use_container_width=True, width=800)
+# Add a button to trigger the input feature function
+if st.sidebar.button('Predict'):
+    # Get user input
+    df = user_input_features()
 
-# Load the saved model
-model = pkl.load(open('model_predict.pkl', 'rb'))
+    for i in range(100):
+        # Update the progress bar with each iteration.
+        latest_iteration.text(f'Iteration {i+1}')
+        bar.progress(i + 1)
+        time.sleep(0.1)
 
-# Predict using the model
-prediction = np.expm1(model.predict(df))
+    st.subheader('User Input Parameters')
+    st.dataframe(df, use_container_width=True, width=800)
 
-st.subheader('Prediction')
-st.write(f"The predicted rental price is: ${prediction[0]:,.2f} in Indian Rupees")
+    # Load the saved model
+    model = pkl.load(open('model_predict.pkl', 'rb'))
+
+    # Predict using the model
+    prediction = np.expm1(model.predict(df))
+
+    st.subheader('Prediction')
+    st.write(f"The predicted rental price is: ${prediction[0]:,.2f} in Indian Rupees")

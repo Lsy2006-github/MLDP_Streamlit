@@ -12,20 +12,7 @@ This app predicts the **Rental Price** based on some criteria!
 st.sidebar.header('User Input Parameters')
 
 # Function to get user inputs
-def user_input_features():
-    BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2)
-    Size = st.sidebar.number_input('Size', 10, 4000000, 10000, 100)
-    Bathroom = st.sidebar.slider('Bathroom', 1, 10, 5)
-    Area_Type = st.sidebar.selectbox('Area Type', ('Built Area', 'Carpet Area', 'Super Area'))
-    City = st.sidebar.selectbox('City', ('Bangalore', 'Mumbai', 'Chennai', 'Hyderabad', 'Kolkata', 'Delhi'))
-    Furnishing_Status = st.sidebar.selectbox('Furnishing Status', ('Semi-Furnished', 'Unfurnished', 'Furnished'))
-    Tenant_Preferred = st.sidebar.selectbox('Tenant Preferred', ('Family', 'Bachelor', 'Bachelors/Family'))
-    Point_of_Contact = st.sidebar.selectbox('Point of Contact', ('Agent', 'Owner', 'Builder'))
-    Floors = st.sidebar.selectbox('The Floor Level of the Building', ('Ground', 'Lower', 'Upper', 'Other'))
-    if Floors == 'Other':
-        Floors = st.sidebar.slider('Floors', 1, 80, 10)
-    else:
-        Floors = Floors
+def user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status, Tenant_Preferred, Point_of_Contact, Floors):
     data = {
         'BHK': [BHK],
         'Size': [Size],
@@ -68,10 +55,24 @@ def user_input_features():
 latest_iteration = st.empty()
 bar = st.progress(0)
 
+BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2)
+Size = st.sidebar.number_input('Size', 10, 4000000, 10000, 100)
+Bathroom = st.sidebar.slider('Bathroom', 1, 10, 5)
+Area_Type = st.sidebar.selectbox('Area Type', ('Built Area', 'Carpet Area', 'Super Area'))
+City = st.sidebar.selectbox('City', ('Bangalore', 'Mumbai', 'Chennai', 'Hyderabad', 'Kolkata', 'Delhi'))
+Furnishing_Status = st.sidebar.selectbox('Furnishing Status', ('Semi-Furnished', 'Unfurnished', 'Furnished'))
+Tenant_Preferred = st.sidebar.selectbox('Tenant Preferred', ('Family', 'Bachelor', 'Bachelors/Family'))
+Point_of_Contact = st.sidebar.selectbox('Point of Contact', ('Agent', 'Owner', 'Builder'))
+Floors = st.sidebar.selectbox('The Floor Level of the Building', ('Ground', 'Lower', 'Upper', 'Other'))
+if Floors == 'Other':
+    Floors = st.sidebar.slider('Floors', 1, 80, 10)
+else:
+    Floors = Floors
+
 # Add a button to trigger the input feature function
 if st.sidebar.button('Predict'):
     # Get user input
-    df = user_input_features()
+    df = user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status, Tenant_Preferred, Point_of_Contact, Floors)
 
     for i in range(100):
         # Update the progress bar with each iteration.

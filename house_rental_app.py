@@ -55,6 +55,7 @@ def user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status,
 # Sidebar - User input features
 st.sidebar.header('User Input Parameters')
 st.sidebar.write('Result are in Indian Rupees')
+
 predict_button = st.sidebar.button('Predict')
 
 BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2, disabled=predict_button)
@@ -72,7 +73,7 @@ else:
     Floors = Floors
 
 # Add a button to trigger the input feature function
-if st.sidebar.button('Predict'):
+if predict_button:
     latest_iteration = st.empty()
     bar = st.progress(0)
     # Get user input

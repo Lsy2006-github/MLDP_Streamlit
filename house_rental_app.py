@@ -55,17 +55,19 @@ def user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status,
 # Sidebar - User input features
 st.sidebar.header('User Input Parameters')
 st.sidebar.write('Result are in Indian Rupees')
-BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2, disabled=st.sidebar.button('Predict'))
-Size = st.sidebar.number_input('Size', 10, 4000000, 10000, 100, disabled=st.sidebar.button('Predict'))
-Bathroom = st.sidebar.slider('Bathroom', 1, 10, 5, disabled=st.sidebar.button('Predict'))
-Area_Type = st.sidebar.selectbox('Area Type', ('Built Area', 'Carpet Area', 'Super Area'), disabled=st.sidebar.button('Predict'))
-City = st.sidebar.selectbox('City', ('Bangalore', 'Mumbai', 'Chennai', 'Hyderabad', 'Kolkata', 'Delhi'), disabled=st.sidebar.button('Predict'))
-Furnishing_Status = st.sidebar.selectbox('Furnishing Status', ('Semi-Furnished', 'Unfurnished', 'Furnished'), disabled=st.sidebar.button('Predict'))
-Tenant_Preferred = st.sidebar.selectbox('Tenant Preferred', ('Family', 'Bachelor', 'Bachelors/Family'), disabled=st.sidebar.button('Predict'))
-Point_of_Contact = st.sidebar.selectbox('Point of Contact', ('Agent', 'Owner', 'Builder'), disabled=st.sidebar.button('Predict'))
-Floors = st.sidebar.selectbox('The Floor Level of the Building', ('Ground', 'Lower', 'Upper', 'Other'), disabled=st.sidebar.button('Predict'))
+predict_button = st.sidebar.button('Predict')
+
+BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2, disabled=predict_button)
+Size = st.sidebar.number_input('Size', 10, 4000000, 10000, 100, disabled=predict_button)
+Bathroom = st.sidebar.slider('Bathroom', 1, 10, 5, disabled=predict_button)
+Area_Type = st.sidebar.selectbox('Area Type', ('Built Area', 'Carpet Area', 'Super Area'), disabled=predict_button)
+City = st.sidebar.selectbox('City', ('Bangalore', 'Mumbai', 'Chennai', 'Hyderabad', 'Kolkata', 'Delhi'), disabled=predict_button)
+Furnishing_Status = st.sidebar.selectbox('Furnishing Status', ('Semi-Furnished', 'Unfurnished', 'Furnished'), disabled=predict_button)
+Tenant_Preferred = st.sidebar.selectbox('Tenant Preferred', ('Family', 'Bachelor', 'Bachelors/Family'), disabled=predict_button)
+Point_of_Contact = st.sidebar.selectbox('Point of Contact', ('Agent', 'Owner', 'Builder'), disabled=predict_button)
+Floors = st.sidebar.selectbox('The Floor Level of the Building', ('Ground', 'Lower', 'Upper', 'Other'), disabled=predict_button)
 if Floors == 'Other':
-    Floors = st.sidebar.slider('Floors', 1, 80, 10, disabled=st.sidebar.button('Predict'))
+    Floors = st.sidebar.slider('Floors', 1, 80, 10, disabled=predict_button)
 else:
     Floors = Floors
 

@@ -85,7 +85,10 @@ if st.sidebar.button('Predict'):
     # Transpose the dataframe to show columns as rows
     df_transposed = df.T
     df_transposed.columns = ["User Input Parameters"]
-    st.dataframe(df_transposed[df_transposed[1] != 0], use_container_width=True, width=800)
+    # Filter out the rows with 0 values
+    filtered_df = df_transposed[df_transposed["User Input Parameters"] != 0]
+    # Show the filtered dataframe
+    st.dataframe(filtered_df, use_container_width=True)
 
     # Load the saved model
     model = joblib.load(open('model_predict.pkl', 'rb'))

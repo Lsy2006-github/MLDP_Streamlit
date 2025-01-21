@@ -104,6 +104,6 @@ if st.sidebar.button('Predict'):
     st.subheader('Prediction')
     st.write(f"The predicted rental price is: ${prediction[0]:,.2f} in Indian Rupees")
 
-if st.sidebar.button('Resety'):
+if st.sidebar.button('Reset'):
     st.caching.clear_cache()
     st.experimental_rerun()

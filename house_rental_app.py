@@ -59,9 +59,9 @@ st.sidebar.write('Result are in Indian Rupees')
 pred_btn, reset_btn = st.columns(2)
 
 with pred_btn:
-    predict_button = st.sidebar.button('Predict')
+    predict_button = st.sidebar.button('Predict', type='primary')
 with reset_btn:
-    if st.sidebar.button('Reset'):
+    if st.sidebar.button('Reset', type='warning'):
         st.cache_data.clear()
 
 BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2, disabled=predict_button)

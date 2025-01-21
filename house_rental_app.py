@@ -84,8 +84,7 @@ if st.sidebar.button('Predict'):
     st.subheader('User Input Parameters')
     # Transpose the dataframe to show columns as rows
     df_transposed = df.T
-    df_transposed.rename(index={'0' : 'User Input Parameter'}, inplace=True)
-    st.dataframe(df_transposed[df_transposed[0] != 0], use_container_width=True, width=800, height=400)
+    st.dataframe(df_transposed[df_transposed[0] != 0], use_container_width=True, width=800, height=400, hide_index=True)
 
     # Load the saved model
     model = joblib.load(open('model_predict.pkl', 'rb'))

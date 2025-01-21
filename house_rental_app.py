@@ -6,8 +6,10 @@ import time
 
 st.write("""
 # Rental Price Prediction App
-This app predicts the **Rental Price** based on some criteria!
+This app predicts the **Rental Price** of a property in India based on its features!
 """)
+
+st.write("Start to predict the rental price by selecting the features on the left sidebar!")
 
 st.sidebar.header('User Input Parameters')
 

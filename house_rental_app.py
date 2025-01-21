@@ -77,8 +77,8 @@ if st.sidebar.button('Predict'):
 
     for i in range(50):
         # Update the progress bar with each iteration.
-        bar.progress(i + 2)
-        time.sleep(0.2)
+        bar.progress(i * 2)
+        time.sleep(0.1)
 
     st.subheader('User Input Parameters')
     # Transpose the dataframe to show columns as rows

@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import pickle as pkl
 import numpy as np
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 st.write("""
 # Rental Price Prediction App
@@ -78,4 +77,4 @@ model = pkl.load(open('model_predict.pkl', 'rb'))
 prediction = np.expm1(model.predict(df))
 
 st.subheader('Prediction')
-st.write(f"The predicted rental price is: ${prediction[0]:,.2f}")   
+st.write(f"The predicted rental price is: ${prediction[0]:,.2f} in Indian Rupees")

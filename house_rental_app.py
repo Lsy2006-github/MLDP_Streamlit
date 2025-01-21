@@ -79,6 +79,10 @@ if st.sidebar.button('Predict'):
         # Update the progress bar with each iteration.
         bar.progress(i * 2, text=f'Predicting... {i * 2}%')
         time.sleep(0.1)
+        if i == 50:
+            bar.progress(100, text='Prediction Completed!')
+            time.sleep(0.1)
+        
     st.divider()
     # Show the user input parameters
     st.subheader('User Input Parameters')

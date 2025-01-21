@@ -56,7 +56,7 @@ def user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status,
 st.sidebar.header('User Input Parameters')
 st.sidebar.write('Result are in Indian Rupees')
 
-pred_btn, reset_btn = st.sidebar.columns(2, vertical_alignment="bottom")
+pred_btn, reset_btn = st.sidebar.columns(2, vertical_alignment="bottom", width=100)
 
 predict_button = pred_btn.button('Predict', type='primary')
 if reset_btn.button('Reset', type='secondary'):

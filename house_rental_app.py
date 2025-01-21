@@ -22,7 +22,7 @@ def user_input_features():
     Point_of_Contact = st.sidebar.selectbox('Point of Contact', ('Agent', 'Owner', 'Builder'))
     Floors = st.sidebar.selectbox('The Floor Level of the Building', ('Ground', 'Lower', 'Upper', 'Other'))
     if Floors == 'Other':
-        Floors = st.sidebar.slider('Floors', 1, 100, 1)
+        Floors = st.sidebar.slider('Floors', 1, 80, 10)
     else:
         Floors = Floors
     data = {

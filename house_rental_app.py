@@ -84,6 +84,7 @@ if st.sidebar.button('Predict'):
     st.subheader('User Input Parameters')
     # Transpose the dataframe to show columns as rows
     df_transposed = df.T
+    df_transposed.rename(columns={0: 'User Input Parameter'}, inplace=True)
     st.dataframe(df_transposed[df_transposed[0] != 0], use_container_width=True, width=800, height=400)
 
     # Load the saved model

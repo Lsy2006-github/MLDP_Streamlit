@@ -57,6 +57,9 @@ st.sidebar.header('User Input Parameters')
 st.sidebar.write('Result are in Indian Rupees')
 
 predict_button = st.sidebar.button('Predict')
+if st.sidebar.button('Reset'):
+    st.cache_data.clear()
+    st.experimental_rerun()
 
 BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2, disabled=predict_button)
 Size = st.sidebar.number_input('Size', 10, 4000000, 10000, 100, disabled=predict_button)
@@ -106,7 +109,3 @@ if predict_button:
 
     st.subheader('Prediction')
     st.write(f"The predicted rental price is: ${prediction[0]:,.2f} in Indian Rupees")
-
-if st.sidebar.button('Reset'):
-    st.caching.clear_cache()
-    st.experimental_rerun()

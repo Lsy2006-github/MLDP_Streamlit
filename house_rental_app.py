@@ -11,8 +11,6 @@ This app predicts the **Rental Price** of a property in India based on its featu
 
 st.write("Start to predict the rental price by selecting the features on the left sidebar!")
 
-st.sidebar.header('User Input Parameters')
-
 # Function to get user inputs
 def user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status, Tenant_Preferred, Point_of_Contact, Floors):
     data = {
@@ -54,6 +52,9 @@ def user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status,
     data = pd.DataFrame(data)
     return data
 
+# Sidebar - User input features
+st.sidebar.header('User Input Parameters')
+st.write('Note: Changing the features will refresh the result!')
 BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2)
 Size = st.sidebar.number_input('Size', 10, 4000000, 10000, 100)
 Bathroom = st.sidebar.slider('Bathroom', 1, 10, 5)

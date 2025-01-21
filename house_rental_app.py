@@ -74,10 +74,10 @@ if st.sidebar.button('Predict'):
     # Get user input
     df = user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status, Tenant_Preferred, Point_of_Contact, Floors)
 
-    for i in range(100):
+    for i in range(50):
         # Update the progress bar with each iteration.
-        bar.progress(i + 1)
-        time.sleep(0.1)
+        bar.progress(i + 2)
+        time.sleep(0.2)
 
     st.subheader('User Input Parameters')
     # Transpose the dataframe to show columns as rows

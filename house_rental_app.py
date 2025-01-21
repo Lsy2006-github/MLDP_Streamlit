@@ -56,10 +56,13 @@ def user_input_features(BHK, Size, Bathroom, Area_Type, City, Furnishing_Status,
 st.sidebar.header('User Input Parameters')
 st.sidebar.write('Result are in Indian Rupees')
 
-predict_button = st.sidebar.button('Predict')
-if st.sidebar.button('Reset'):
-    st.cache_data.clear()
-    st.experimental_rerun()
+pred_btn, reset_btn = st.columns(2)
+
+with pred_btn:
+    predict_button = st.sidebar.button('Predict')
+with reset_btn:
+    if st.sidebar.button('Reset'):
+        st.cache_data.clear()
 
 BHK = st.sidebar.slider('Bedroom, Hallway, Kitchen', 1, 5, 2, disabled=predict_button)
 Size = st.sidebar.number_input('Size', 10, 4000000, 10000, 100, disabled=predict_button)

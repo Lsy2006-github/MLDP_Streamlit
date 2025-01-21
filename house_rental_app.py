@@ -82,7 +82,7 @@ if st.sidebar.button('Predict'):
     st.subheader('User Input Parameters')
     # Transpose the dataframe to show columns as rows
     df_transposed = df.T
-    st.dataframe(df_transposed, use_container_width=True, width=800)
+    st.dataframe(df_transposed, use_container_width=True, width=800, columns='User Input Parameters')
 
     # Load the saved model
     model = pkl.load(open('model_predict.pkl', 'rb'))

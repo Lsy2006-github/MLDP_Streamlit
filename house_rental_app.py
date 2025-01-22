@@ -111,6 +111,4 @@ if predict_button:
     st.subheader('Prediction')
     st.write(f"The predicted rental price is: ${prediction[0]:,.2f} in Indian Rupees")
     
-    st.subheader('Prediction Error')
-    st.write(f"The prediction error is: {np.abs(prediction[0] - 10000):,.2f} in Indian Rupees")
-    
+    st.write('Note: The prediction is based on the user input parameters. The actual rental price may vary.')

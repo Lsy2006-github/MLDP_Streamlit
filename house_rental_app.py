@@ -111,6 +111,6 @@ if predict_button:
     st.subheader('Prediction')
     st.write(f"The predicted rental price is: ${prediction[0]:,.2f} in Indian Rupees")
     
-    st.subheader('Model Parameters')
-    st.write("The model used is a Gradient Boosting Regressor with the following parameters:")
-    st.write(model.get_params())
+    st.subheader('Prediction Error')
+    st.write(f"The prediction error is: {np.abs(prediction[0] - 10000):,.2f} in Indian Rupees")
+    

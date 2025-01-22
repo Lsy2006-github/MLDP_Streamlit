@@ -4,6 +4,8 @@ import joblib
 import numpy as np
 import time
 
+st.set_page_config(page_title='Rental Price Prediction App', page_icon='🏠', layout='wide', initial_sidebar_state='expanded')
+
 st.write("""
 # Rental Price Prediction App
 This app predicts the **Rental Price** of a property in India based on its features!

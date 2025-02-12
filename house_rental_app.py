@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import joblib
 import time
 
 st.set_page_config(page_title='Rental Price Prediction App', page_icon='🏠', layout='wide', initial_sidebar_state='expanded')
